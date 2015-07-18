@@ -1,0 +1,28 @@
+<h2>Locations</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
+        Name
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |location|}}
+      <tr>
+        <td>
+          {{location.id}}
+        </td>
+        <td>
+          {{location.name}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{outlet}}
