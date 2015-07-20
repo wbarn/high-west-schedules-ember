@@ -7,6 +7,14 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('locations');
+  this.route('recipes', function() {
+    this.route('new');
+    this.route('show', { path: '/:recipe_id' }, function() {
+
+    });
+    this.route('edit', { path: '/:recipe_id/edit' });
+    this.route('delete', { path: '/:recipe_id/delete' });
+  });
 });
 
 export default Router;

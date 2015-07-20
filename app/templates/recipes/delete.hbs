@@ -1,0 +1,14 @@
+<h1>Delete Recipe: <em>{{model.name}}</em></h1>
+
+<p>
+  Are you sure you want to delete this Recipe?
+</p>
+
+<p class="text-danger">
+  This cannot be undone!
+</p>
+
+<button type="button" class="btn btn-danger" {{action 'deleteRecipe' model}}>
+  Yes, Delete Forever!
+</button>
+{{#link-to 'recipes.show' model class="btn btn-default"}}Cancel{{/link-to}}

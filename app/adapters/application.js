@@ -1,5 +1,4 @@
 import DS from 'ember-data';
 
-export default DS.JSONAPIAdapter.extend({
-  isNewSerializerAPI: true
+export default DS.RESTAdapter.extend({
 });

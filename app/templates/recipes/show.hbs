@@ -1,0 +1,11 @@
+<h1>Recipe: {{model.name}}</h1>
+<h2>{{model.proof}} Proof</h2>
+{{#if model.notes}}
+<p>
+  {{model.notes}}
+</p>
+{{/if}}
+
+{{#link-to 'recipes.edit' model }}edit details{{/link-to}}
+
+{{outlet}}
