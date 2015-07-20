@@ -19,15 +19,9 @@
   <tbody>
     {{#each recipe in model}}
       {{#link-to 'recipes.show' recipe tagName="tr"}}
-        <td>
-          {{recipe.name}}
-        </td>
-        <td>
-          {{recipe.proof}}
-        </td>
-        <td>
-          {{recipe.notes}}
-        </td>
+        <td>{{recipe.name}}</td>
+        <td>{{recipe.proof}}</td>
+        <td>{{recipe.notes}}</td>
       {{/link-to}}
     {{/each}}
   </tbody>

@@ -15,10 +15,13 @@ module('Acceptance | recipes', {
 });
 
 test('using recipes', function(assert) {
+  var recipes = server.createList('recipe', 3);
   visit('/recipes');
 
   andThen(function() {
     assert.equal(currentURL(), '/recipes', 'Visit /recipes');
+    assert.equal( find('tbody tr').length, 3, 'Count recipes');
+    assert.equal( find('tbody tr:first td:first').text(), recipes[0].name, 'Match first recipe name');
   });
 
   // Go to New
@@ -28,11 +31,18 @@ test('using recipes', function(assert) {
     assert.equal(currentURL(),'/recipes/new', 'Go to New');
   });
 
+  // Create Recipe
   fillIn('input#name', 'RECIPE NAME');
   fillIn('input#proof', 90);
   fillIn('textarea#notes', 'RECIPE NOTES');
   click('button:contains(Save)');
   andThen(function() {
-    assert.equal(currentRouteName(), 'recipes.show.index', 'Goes to recipes.show.index');
+    assert.equal(currentRouteName(), 'recipes.show.index', 'Go to Show Index');
+  });
+
+  // Go to Edit
+  click('a:contains(edit)');
+  andThen(function() {
+    assert.equal(currentRouteName(), 'recipes.edit', 'Go to Edit');
   });
 });
