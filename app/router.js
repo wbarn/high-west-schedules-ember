@@ -10,7 +10,9 @@ Router.map(function() {
   this.route('recipes', function() {
     this.route('new');
     this.route('show', { path: '/:recipe_id' }, function() {
-
+      this.route('ingredients', function() {
+        this.route('new');
+      });
     });
     this.route('edit', { path: '/:recipe_id/edit' });
     this.route('delete', { path: '/:recipe_id/delete' });
