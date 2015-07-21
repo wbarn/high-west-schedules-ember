@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('show', { path: '/:recipe_id' }, function() {
       this.route('ingredients', function() {
         this.route('new');
+        this.route('edit', { path: '/:ingredient_id/edit'});
       });
     });
     this.route('edit', { path: '/:recipe_id/edit' });

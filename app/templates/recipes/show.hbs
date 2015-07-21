@@ -22,12 +22,19 @@
   </thead>
   <tbody>
     {{#each model.ingredients as |ingredient|}}
-      <tr>
+      {{#link-to 'recipes.show.ingredients.edit' ingredient tagName="tr" class="clickable"}}
         <td>{{ingredient.spiritType.name}}</td>
         <td>{{ingredient.age}}</td>
         <td>{{ingredient.percentage}}</td>
-      </tr>
+      {{/link-to}}
     {{/each}}
+    <tr class="{{model.percentageSatus}}">
+      <td></td>
+      <td><strong>Total</strong></td>
+      <td>
+        <strong>{{model.percentageTotal}}</strong> {{#if model.percentageInvalid}}(off by {{model.percentageDiff}}){{/if}}
+      </td>
+    </tr>
   </tbody>
 </table>
 

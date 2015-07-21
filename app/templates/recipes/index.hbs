@@ -18,7 +18,7 @@
   </thead>
   <tbody>
     {{#each model as |recipe|}}
-      {{#link-to 'recipes.show' recipe tagName="tr"}}
+      {{#link-to 'recipes.show' recipe tagName="tr" class="clickable"}}
         <td>{{recipe.name}}</td>
         <td>{{recipe.proof}}</td>
         <td>{{recipe.notes}}</td>
