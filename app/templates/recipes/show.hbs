@@ -1,41 +1,120 @@
 <h1>Recipe: <em>{{model.name}}</em> <small>{{#link-to 'recipes.edit' model }}edit{{/link-to}}</small></h1>
 <div class="row">
-  <div class="col-md-4">
-    <h3>{{model.proof}} Proof</h3>
+  <div class="col-md-2">
+    <h4>{{model.proof}} Proof</h4>
   </div>
   <div class="col-md-8">
-    {{model.nodes}}
+    {{model.notes}}
   </div>
 </div>
 
 <hr>
 
-{{#link-to 'recipes.show.ingredients.new' class="btn btn-primary"}}Add Ingredient{{/link-to}}
+<h3>Ingredients</h3>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Spirit Type</th>
-      <th>Age</th>
-      <th>Percentage</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model.ingredients as |ingredient|}}
-      {{#link-to 'recipes.show.ingredients.edit' ingredient tagName="tr" class="clickable"}}
-        <td>{{ingredient.spiritType.name}}</td>
-        <td>{{ingredient.age}}</td>
-        <td>{{ingredient.percentage}}</td>
-      {{/link-to}}
-    {{/each}}
-    <tr class="{{model.percentageSatus}}">
-      <td></td>
-      <td><strong>Total</strong></td>
-      <td>
-        <strong>{{model.percentageTotal}}</strong> {{#if model.percentageInvalid}}(off by {{model.percentageDiff}}){{/if}}
-      </td>
-    </tr>
-  </tbody>
-</table>
+<p class="text-muted">
+  Click Ingredient row to edit or remove.
+</p>
+
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Spirit Type</th>
+          <th>Age</th>
+          <th>Percentage</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model.ingredients as |ingredient|}}
+          {{#link-to
+            'recipes.show.ingredients.edit' ingredient
+            tagName="tr" class="clickable"}}
+            <td>{{ingredient.spiritType.name}}</td>
+            <td>{{ingredient.age}}</td>
+            <td>{{ingredient.percentage}}</td>
+          {{/link-to}}
+        {{/each}}
+        <tr class="{{model.percentageSatus}}">
+          <td></td>
+          <td><strong>Total</strong></td>
+          <td>
+            <strong>{{model.percentageTotal}}</strong> {{#if model.percentageInvalid}}(off by {{model.percentageDiff}}){{/if}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{{#link-to 'recipes.show.ingredients.new' class="btn btn-primary"}}
+  Add Ingredient
+{{/link-to}}
+
+<hr>
+
+<h3>Barrel Calculator</h3>
+
+<p class="text-muted">
+  Input number of cases and see required number of Proof Gallons required of each Spirit Type.
+</p>
+
+<div class="row">
+
+  <div class="col-md-2">
+    {{single-input label="Cases" buttonText="Recalculate" value=cases action=(action (mut cases))}}
+  </div>
+  <div class="col-md-6">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Spirit Type</th>
+          <th>Percentage</th>
+          <th>Proof Gallons</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model.ingredients as |ingredient|}}
+          <tr>
+            <td>{{ingredient.spiritType.name}}</td>
+            <td align="right">{{ingredient.percentage}}</td>
+            <td align="right">{{ingredient-pfgs  totalProofGallons ingredient.percentage}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <table class="table table-condensed">
+      <thead>
+        <tr><th colspan="2">Calculated Values</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Recipe Proof</td><td align="right">{{proof}}</td></tr>
+        <tr><td>Total Liquid Gallons</td><td align="right">{{format-number totalLiquidGallons precision=3}}</td></tr>
+        <tr><td>Proof Gallons per Case</td><td align="right">{{format-number proofGallonsPerCase precision=3}}</td></tr>
+        <tr><td>Total Proof Gallons</td><td align="right">{{format-number totalProofGallons precision=3}}</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <table class="table table-condensed">
+      <thead>
+        <tr><th colspan="2">Fixed Values</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>MLs per Bottle</td><td align="right">{{mlsPerBottle}}</td></tr>
+        <tr><td>Bottles per Case</td><td align="right">{{bottlesPerCase}}</td></tr>
+        <tr><td>Liters per Case</td><td align="right">{{litersPerCase}}</td></tr>
+        <tr><td>Liters per Gallon</td><td align="right">{{litersPerGallon}}</td></tr>
+        <tr><td>Liquid Gallons per Case</td><td align="right">{{format-number liquidGallonsPerCase precision=6}}</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 {{outlet}}

@@ -2,11 +2,11 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  name: DS.attr("string"),
-  proof: DS.attr("number"),
-  notes: DS.attr("string"),
+  name: DS.attr('string'),
+  proof: DS.attr('number'),
+  notes: DS.attr('string'),
 
-  ingredients: DS.hasMany("ingredients"),
+  ingredients: DS.hasMany('ingredients', { async: true }),
 
   percentageTotal: Ember.computed('ingredients.@each.percentage', function() {
     var ingredients = this.get('ingredients');
