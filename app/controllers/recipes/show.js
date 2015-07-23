@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
   }),
 
   proofGallonsPerCase: Ember.computed('proof', 'liquidGallonsPerCase', function() {
-    return this.get('liquidGallonsPerCase') * this.get('proof');
+    return (this.get('liquidGallonsPerCase') * this.get('proof')) / 100;
   }),
 
   totalLiquidGallons: Ember.computed('cases', 'liquidGallonsPerCase', function() {
