@@ -1,0 +1,24 @@
+<h1>Spirit Type <em>{{spiritType.name}}</em></h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Age (months)</th>
+          <th>Barrels</th>
+          <th>Proof Gallons</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each inventory.inventory as |group|}}
+          <tr>
+            <td>{{group.age}}</td>
+            <td>{{group.barrels}}</td>
+            <td>{{group.proof_gallons}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

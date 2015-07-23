@@ -1,0 +1,22 @@
+<h1>Spirit Types</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |type|}}
+          {{#link-to "spirit-types.show" type tagName="tr" class="clickable"}}
+            <td>{{type.name}}</td>
+          {{/link-to}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

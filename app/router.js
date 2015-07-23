@@ -18,6 +18,9 @@ Router.map(function() {
     this.route('edit', { path: '/:recipe_id/edit' });
     this.route('delete', { path: '/:recipe_id/delete' });
   });
+  this.route('spirit-types', function() {
+    this.route('show', { path: '/:spirit-type_id' });
+  });
 });
 
 export default Router;

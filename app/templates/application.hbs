@@ -15,10 +15,13 @@
         <ul class="nav navbar-nav">
           {{!-- {{#if session.isAuthenticated}} --}}
           <li>
-            {{#link-to 'recipes' activeLink=link}}Recipes{{/link-to}}
+            {{#link-to 'recipes'}}Recipes{{/link-to}}
           </li>
           <li>
-            {{#link-to 'locations' activeLink=link}}Locations{{/link-to}}
+            {{#link-to 'spirit-types'}}Spirit types{{/link-to}}
+          </li>
+          <li>
+            {{#link-to 'locations'}}Locations{{/link-to}}
           </li>
           {{!-- {{/if}} --}}
         </ul>
