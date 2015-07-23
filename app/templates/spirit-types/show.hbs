@@ -1,4 +1,12 @@
-<h1>Spirit Type <em>{{spiritType.name}}</em></h1>
+<h1>Spirit Type <em>{{model.name}}</em> <small>{{#link-to 'spiritTypes.edit' model}}edit{{/link-to}}</small></h1>
+
+{{#if model.notes}}
+  <p>
+    {{model.notes}}
+  </p>
+{{/if}}
+
+<hr>
 
 <div class="row">
   <div class="col-md-6">
@@ -7,17 +15,17 @@
         <tr>
           <th>Age (months)</th>
           <th>Barrels</th>
-          <th>Proof Gallons</th>
+          <th>OPGs</th>
         </tr>
       </thead>
       <tbody>
-        {{#each inventory.inventory as |group|}}
+        {{!-- {{#each inventory.inventory as |group|}}
           <tr>
             <td>{{group.age}}</td>
             <td>{{group.barrels}}</td>
             <td>{{group.proof_gallons}}</td>
           </tr>
-        {{/each}}
+        {{/each}} --}}
       </tbody>
     </table>
   </div>

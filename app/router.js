@@ -18,8 +18,11 @@ Router.map(function() {
     this.route('edit', { path: '/:recipe_id/edit' });
     this.route('delete', { path: '/:recipe_id/delete' });
   });
-  this.route('spirit-types', function() {
-    this.route('show', { path: '/:spirit-type_id' });
+  this.route('spiritTypes', function() {
+    this.route('new');
+    this.route('show', { path: '/:spirit_type_id' });
+    this.route('edit', { path: '/:spirit_type_id/edit'});
+    this.route('delete', { path: '/:spirit_type_id/delete'});
   });
 });
 

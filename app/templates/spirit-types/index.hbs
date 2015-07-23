@@ -1,19 +1,23 @@
 <h1>Spirit Types</h1>
 
+{{#link-to 'spiritTypes.new' class="btn btn-primary"}}New Spirit Type{{/link-to}}
+
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-8">
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>
-            Name
-          </th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Notes</th>
         </tr>
       </thead>
       <tbody>
         {{#each model as |type|}}
-          {{#link-to "spirit-types.show" type tagName="tr" class="clickable"}}
+          {{#link-to "spiritTypes.show" type tagName="tr" class="clickable"}}
+            <td>{{type.id}}</td>
             <td>{{type.name}}</td>
+            <td>{{type.notes}}</td>
           {{/link-to}}
         {{/each}}
       </tbody>

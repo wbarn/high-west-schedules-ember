@@ -1,0 +1,27 @@
+<h1>Edit: <strong>{{model.name}}</strong></h1>
+
+<hr>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="name" class="col-sm-2 col-md-1 control-label">Name</label>
+    <div class="col-sm-10 col-md-4">
+      {{input id="name" value=model.name class="form-control" placeholder="Enter name"}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="notes" class="control-label col-sm-2 col-md-1">Notes</label>
+    <div class="col-sm-10 col-md-4">
+      {{textarea id="notes" value=model.notes class="form-control" placeholder="Enter notes (optional)"}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10 col-md-offset-1">
+      <button class="btn btn-primary" {{action 'updateSpiritType'}}>Save</button>
+      {{#link-to 'spiritTypes.delete' model class="btn btn-danger"}}Delete{{/link-to}}
+      <button class="btn btn-link" {{action 'cancelUpdateSpiritType' model}}>Cancel</button>
+    </div>
+  </div>
+</form>
