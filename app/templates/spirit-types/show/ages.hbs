@@ -1,0 +1,24 @@
+<h2>Ages</h2>
+
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Age (months)</th>
+          <th>Barrels</th>
+          <th>OPGs</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model.ages as |age|}}
+          {{#link-to 'spiritTypes.show.lots' spiritType.id (query-params age=age.age) tagName='tr' class="clickable"}}
+            <td>{{age.age}}</td>
+            <td>{{age.barrel_count}}</td>
+            <td>{{format-number age.original_proof_gallons}}</td>
+          {{/link-to}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

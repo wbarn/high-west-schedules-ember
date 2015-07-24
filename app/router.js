@@ -20,7 +20,12 @@ Router.map(function() {
   });
   this.route('spiritTypes', function() {
     this.route('new');
-    this.route('show', { path: '/:spirit_type_id' });
+    this.route('show', { path: '/:spirit_type_id' }, function() {
+      this.route('ages');
+      this.route('lots', function() {
+        this.route('show', { path: ':lot_id' });
+      });
+    });
     this.route('edit', { path: '/:spirit_type_id/edit'});
     this.route('delete', { path: '/:spirit_type_id/delete'});
   });

@@ -1,4 +1,4 @@
-<h1>Spirit Type <em>{{spiritType.name}}</em> <small>{{#link-to 'spiritTypes.edit' spiritType}}edit{{/link-to}}</small></h1>
+<h1>Spirit Type <em>{{model.name}}</em> <small>{{#link-to 'spiritTypes.edit' model}}edit{{/link-to}}</small></h1>
 
 {{#if model.notes}}
   <p>
@@ -8,25 +8,7 @@
 
 <hr>
 
-<div class="row">
-  <div class="col-md-6">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Age (months)</th>
-          <th>Barrels</th>
-          <th>OPGs</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each inventory.inventory as |group|}}
-          <tr>
-            <td>{{group.age}}</td>
-            <td>{{group.barrels}}</td>
-            <td>{{group.proof_gallons}}</td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
-</div>
+{{#link-to 'spiritTypes.show.ages' model.id class="btn btn-primary"}}Ages{{/link-to}}
+{{#link-to 'spiritTypes.show.lots' model.id (query-params age=null) class="btn btn-primary"}}Lots{{/link-to}}
+
+{{outlet}}

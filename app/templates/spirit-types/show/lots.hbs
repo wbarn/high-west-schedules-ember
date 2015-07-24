@@ -1,0 +1,33 @@
+<h2>Lots</h2>
+
+{{#if age}}
+  <h3>Showing age: <span class="text-primary">{{age}} months</span></h3>
+  <button class="btn btn-default" {{action 'resetAgeFilter'}}>Reset</button>
+{{/if}}
+
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Age (months)</th>
+          <th>US Batch ID</th>
+          <th>Barrels</th>
+          <th>OPGs</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each filteredLots as |lot|}}
+          <tr>
+            <td>{{lot.id}}</td>
+            <td>{{lot.age}}</td>
+            <td>{{lot.us_batch_id}}</td>
+            <td>{{lot.barrels_count}}</td>
+            <td>{{format-number lot.original_proof_gallons}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
