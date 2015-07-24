@@ -1,4 +1,4 @@
-<h1>Spirit Type <em>{{model.name}}</em> <small>{{#link-to 'spiritTypes.edit' model}}edit{{/link-to}}</small></h1>
+<h1>Spirit Type <em>{{spiritType.name}}</em> <small>{{#link-to 'spiritTypes.edit' spiritType}}edit{{/link-to}}</small></h1>
 
 {{#if model.notes}}
   <p>
@@ -19,13 +19,13 @@
         </tr>
       </thead>
       <tbody>
-        {{!-- {{#each inventory.inventory as |group|}}
+        {{#each inventory.inventory as |group|}}
           <tr>
             <td>{{group.age}}</td>
             <td>{{group.barrels}}</td>
             <td>{{group.proof_gallons}}</td>
           </tr>
-        {{/each}} --}}
+        {{/each}}
       </tbody>
     </table>
   </div>

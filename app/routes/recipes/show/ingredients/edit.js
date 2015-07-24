@@ -22,6 +22,12 @@ export default Ember.Route.extend({
 
     deleteIngredient: function(recipe, ingredient) {
       ingredient.destroyRecord().then(this.transitionTo('recipes.show', recipe));
+    },
+
+    cancelUpdateIngredient: function(recipe, ingredient) {
+      ingredient.rollback();
+
+      this.transitionTo('recipes.show', recipe);
     }
   }
 });

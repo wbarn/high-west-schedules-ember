@@ -29,7 +29,7 @@
       <tbody>
         {{#each model.ingredients as |ingredient|}}
           {{#link-to
-            'recipes.show.ingredients.edit' ingredient
+            'recipes.show.ingredients.edit' ingredient.id
             tagName="tr" class="clickable"}}
             <td>{{ingredient.spiritType.name}}</td>
             <td>{{ingredient.age}}</td>

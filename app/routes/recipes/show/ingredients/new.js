@@ -18,6 +18,10 @@ export default Ember.Route.extend({
   actions: {
     createIngredient: function(recipe, ingredient) {
       ingredient.save().then(this.transitionTo('recipes.show', recipe));
+    },
+
+    cancelCreateIngredient: function(recipe, ingredient) {
+      ingredient.destroyRecord().then(this.transitionTo('recipes.show', recipe));
     }
   }
 });

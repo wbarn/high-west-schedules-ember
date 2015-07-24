@@ -14,6 +14,7 @@ export default Ember.Route.extend({
 
     cancelCreateRecipe: function() {
       var recipe = this.get('currentModel');
+
       recipe.destroyRecord();
       this.transitionTo('recipes');
     }

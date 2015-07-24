@@ -31,7 +31,7 @@
       <div class="form-actions">
         <button class="btn btn-primary" {{action 'updateIngredient' recipe ingredient}}>Save</button>
         <button class="btn btn-danger btn-xs" {{action 'deleteIngredient' recipe ingredient}}>Remove</button>
-        {{#link-to 'recipes.show' recipe}}Cancel{{/link-to}}
+        <button class="btn btn-link" {{action 'cancelUpdateIngredient' recipe ingredient}}>Cancel</button>
       </div>
     </div>
   </div>

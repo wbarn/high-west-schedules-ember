@@ -14,7 +14,7 @@
       </thead>
       <tbody>
         {{#each model as |type|}}
-          {{#link-to "spiritTypes.show" type tagName="tr" class="clickable"}}
+          {{#link-to "spiritTypes.show" type.id tagName="tr" class="clickable"}}
             <td>{{type.id}}</td>
             <td>{{type.name}}</td>
             <td>{{type.notes}}</td>

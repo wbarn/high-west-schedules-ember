@@ -10,6 +10,7 @@ export default Ember.Route.extend({
 
     cancelUpdateSpiritType: function(spiritType) {
       spiritType.rollback();
+
       this.transitionTo('spiritTypes.show', spiritType);
     }
   }
