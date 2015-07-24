@@ -12,6 +12,12 @@
 
 <h3>Ingredients</h3>
 
+<div class="row">
+  <div class="col-md-6">
+    {{single-input label="Cases" buttonText="Recalculate" value=cases action=(action (mut cases))}}
+  </div>
+</div>
+
 <p class="text-muted">
   Click Ingredient row to edit or remove.
 </p>
@@ -22,26 +28,30 @@
       <thead>
         <tr>
           <th>Spirit Type</th>
-          <th>Age</th>
-          <th>Percentage</th>
+          <th class="text-right">Age</th>
+          <th class="text-right">Percentage</th>
+          <th class="text-right">PFGs (for {{cases}} cases)</th>
         </tr>
       </thead>
       <tbody>
         {{#each model.ingredients as |ingredient|}}
           {{#link-to
             'recipes.show.ingredients.edit' ingredient.id
-            tagName="tr" class="clickable"}}
+            tagName="tr" class="clickable"
+          }}
             <td>{{ingredient.spiritType.name}}</td>
-            <td>{{ingredient.age}}</td>
-            <td>{{ingredient.percentage}}</td>
+            <td class="text-right">{{format-number ingredient.age}}</td>
+            <td class="text-right">{{format-number ingredient.percentage precision=2}}</td>
+            <td class="text-right">{{ingredient-pfgs  totalProofGallons ingredient.percentage}}</td>
           {{/link-to}}
         {{/each}}
         <tr class="{{model.percentageSatus}}">
           <td></td>
-          <td><strong>Total</strong></td>
-          <td>
+          <td><strong>Totals</strong></td>
+          <td class="text-right">
             <strong>{{model.percentageTotal}}</strong> {{#if model.percentageInvalid}}(off by {{model.percentageDiff}}){{/if}}
           </td>
+          <td class="text-right">{{format-number totalProofGallons precision=3}}</td>
         </tr>
       </tbody>
     </table>
@@ -54,64 +64,31 @@
 
 <hr>
 
-<h3>Barrel Calculator</h3>
-
-<p class="text-muted">
-  Input number of cases and see required number of Proof Gallons required of each Spirit Type.
-</p>
-
 <div class="row">
-
-  <div class="col-md-2">
-    {{single-input label="Cases" buttonText="Recalculate" value=cases action=(action (mut cases))}}
-  </div>
-  <div class="col-md-6">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th>Spirit Type</th>
-          <th>Percentage</th>
-          <th>Proof Gallons</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each model.ingredients as |ingredient|}}
-          <tr>
-            <td>{{ingredient.spiritType.name}}</td>
-            <td align="right">{{ingredient.percentage}}</td>
-            <td align="right">{{ingredient-pfgs  totalProofGallons ingredient.percentage}}</td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-4">
-    <table class="table table-condensed">
-      <thead>
-        <tr><th colspan="2">Calculated Values</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Recipe Proof</td><td align="right">{{proof}}</td></tr>
-        <tr><td>Total Liquid Gallons</td><td align="right">{{format-number totalLiquidGallons precision=3}}</td></tr>
-        <tr><td>Proof Gallons per Case</td><td align="right">{{format-number proofGallonsPerCase precision=3}}</td></tr>
-        <tr><td>Total Proof Gallons</td><td align="right">{{format-number totalProofGallons precision=3}}</td></tr>
-      </tbody>
-    </table>
-  </div>
   <div class="col-md-4">
     <table class="table table-condensed">
       <thead>
         <tr><th colspan="2">Fixed Values</th></tr>
       </thead>
       <tbody>
-        <tr><td>MLs per Bottle</td><td align="right">{{mlsPerBottle}}</td></tr>
-        <tr><td>Bottles per Case</td><td align="right">{{bottlesPerCase}}</td></tr>
-        <tr><td>Liters per Case</td><td align="right">{{litersPerCase}}</td></tr>
-        <tr><td>Liters per Gallon</td><td align="right">{{litersPerGallon}}</td></tr>
-        <tr><td>Liquid Gallons per Case</td><td align="right">{{format-number liquidGallonsPerCase precision=6}}</td></tr>
+        <tr><td>MLs per Bottle</td><td class="text-right">{{mlsPerBottle}}</td></tr>
+        <tr><td>Bottles per Case</td><td class="text-right">{{bottlesPerCase}}</td></tr>
+        <tr><td>Liters per Case</td><td class="text-right">{{litersPerCase}}</td></tr>
+        <tr><td>Liters per Gallon</td><td class="text-right">{{litersPerGallon}}</td></tr>
+        <tr><td>Liquid Gallons per Case</td><td class="text-right">{{format-number liquidGallonsPerCase precision=6}}</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <table class="table table-condensed">
+      <thead>
+        <tr><th colspan="2">Calculated Values</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Recipe Proof</td><td class="text-right">{{proof}}</td></tr>
+        <tr><td>Total Liquid Gallons</td><td class="text-right">{{format-number totalLiquidGallons precision=3}}</td></tr>
+        <tr><td>Proof Gallons per Case</td><td class="text-right">{{format-number proofGallonsPerCase precision=3}}</td></tr>
+        <tr><td>Total Proof Gallons</td><td class="text-right">{{format-number totalProofGallons precision=3}}</td></tr>
       </tbody>
     </table>
   </div>

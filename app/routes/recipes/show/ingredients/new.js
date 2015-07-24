@@ -6,7 +6,7 @@ export default Ember.Route.extend({
 
     return Ember.RSVP.hash({
       recipe: recipe,
-      ingredient: this.store.createRecord('ingredient', { recipe: recipe}),
+      ingredient: this.store.createRecord('ingredient'),
       spiritTypes: this.store.findAll('spirit-type')
     });
   },
@@ -17,6 +17,7 @@ export default Ember.Route.extend({
 
   actions: {
     createIngredient: function(recipe, ingredient) {
+      ingredient.set('recipe', recipe);
       ingredient.save().then(this.transitionTo('recipes.show', recipe));
     },
 
