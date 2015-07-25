@@ -23,14 +23,18 @@
 </p>
 
 <div class="row">
-  <div class="col-md-8">
-    <table class="table table-striped table-hover">
+  <div class="col-md-12">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>Spirit Type</th>
           <th class="text-right">Age</th>
           <th class="text-right">Percentage</th>
           <th class="text-right">PFGs (for {{cases}} cases)</th>
+          <th class="text-right">PFGs at Age</th>
+          <th class="text-right">PFGs Age - +6</th>
+          <th class="text-right">PFGs Age &gt; +6</th>
+          <th class="text-right">PFGs &lt; Age</th>
         </tr>
       </thead>
       <tbody>
@@ -41,8 +45,24 @@
           }}
             <td>{{ingredient.spiritType.name}}</td>
             <td class="text-right">{{format-number ingredient.age}}</td>
-            <td class="text-right">{{format-number ingredient.percentage precision=2}}</td>
-            <td class="text-right">{{ingredient-pfgs  totalProofGallons ingredient.percentage}}</td>
+            <td class="text-right">
+              {{format-number ingredient.percentage precision=2}}
+            </td>
+            <td class="text-right">
+              {{ingredient-pfgs  totalProofGallons ingredient.percentage}}
+            </td>
+            <td class="text-right">
+              {{format-number ingredient.inventoryAtAge precision=2}}
+            </td>
+            <td class="text-right">
+              {{format-number ingredient.inventoryPlusSix precision=2}}
+            </td>
+            <td class="text-right">
+              {{format-number ingredient.inventoryBeyondSix precision=2}}
+            </td>
+            <td class="text-right">
+              {{format-number ingredient.inventoryBelowAge precision=2}}
+            </td>
           {{/link-to}}
         {{/each}}
         <tr class="{{model.percentageSatus}}">
@@ -52,6 +72,9 @@
             <strong>{{model.percentageTotal}}</strong> {{#if model.percentageInvalid}}(off by {{model.percentageDiff}}){{/if}}
           </td>
           <td class="text-right">{{format-number totalProofGallons precision=3}}</td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
       </tbody>
     </table>
@@ -66,7 +89,7 @@
 
 <div class="row">
   <div class="col-md-4">
-    <table class="table table-condensed">
+    <table class="table table-condensed table-hover">
       <thead>
         <tr><th colspan="2">Fixed Values</th></tr>
       </thead>
@@ -80,7 +103,7 @@
     </table>
   </div>
   <div class="col-md-4">
-    <table class="table table-condensed">
+    <table class="table table-condensed table-hover">
       <thead>
         <tr><th colspan="2">Calculated Values</th></tr>
       </thead>

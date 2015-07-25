@@ -17,7 +17,10 @@ export default Ember.Route.extend({
 
   actions: {
     updateIngredient: function(recipe, ingredient) {
-      ingredient.save().then(this.transitionTo('recipes.show', recipe));
+      ingredient.save().then(() => {
+        ingredient.reload();
+        this.transitionTo('recipes.show', recipe);
+      });
     },
 
     deleteIngredient: function(recipe, ingredient) {
