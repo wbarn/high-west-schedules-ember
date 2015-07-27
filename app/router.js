@@ -29,6 +29,7 @@ Router.map(function() {
     this.route('edit', { path: '/:spirit_type_id/edit'});
     this.route('delete', { path: '/:spirit_type_id/delete'});
   });
+  this.route('login');
 });
 
 export default Router;
