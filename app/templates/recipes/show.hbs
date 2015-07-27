@@ -71,10 +71,14 @@
           <td class="text-right">
             <strong>{{model.percentageTotal}}</strong> {{#if model.percentageInvalid}}(off by {{model.percentageDiff}}){{/if}}
           </td>
-          <td class="text-right">{{format-number totalProofGallons precision=3}}</td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="text-right">
+            {{#if model.ingredients}}
+              {{format-number totalProofGallons precision=3}}
+            {{else}}
+              <em>n/a</em>
+            {{/if}}
+          </td>
+          <td colspan="4"></td>
         </tr>
       </tbody>
     </table>
