@@ -18,7 +18,7 @@
         {{#each model as |schedule|}}
           {{#link-to 'schedules.show' schedule tagName="tr" class="clickable"}}
             <td>{{schedule.name}}</td>
-            <td></td>
+            <td>{{moment-format schedule.createdAt 'MM/DD/YY'}}</td>
             <td>{{schedule.notes}}</td>
           {{/link-to}}
         {{/each}}
