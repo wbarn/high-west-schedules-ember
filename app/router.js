@@ -6,7 +6,10 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('login');
+
   this.route('locations');
+
   this.route('recipes', function() {
     this.route('new');
     this.route('show', { path: '/:recipe_id' }, function() {
@@ -18,6 +21,7 @@ Router.map(function() {
     this.route('edit', { path: '/:recipe_id/edit' });
     this.route('delete', { path: '/:recipe_id/delete' });
   });
+
   this.route('spiritTypes', function() {
     this.route('new');
     this.route('show', { path: '/:spirit_type_id' }, function() {
@@ -29,7 +33,13 @@ Router.map(function() {
     this.route('edit', { path: '/:spirit_type_id/edit'});
     this.route('delete', { path: '/:spirit_type_id/delete'});
   });
-  this.route('login');
+
+  this.route('schedules', function() {
+    this.route('new');
+    this.route('show', { path: '/:schedule_id' });
+    this.route('edit', { path: '/:schedule_id/edit' });
+    this.route('delete', { path: '/:schedule_id/delete' });
+  });
 });
 
 export default Router;

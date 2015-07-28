@@ -15,6 +15,9 @@
         <ul class="nav navbar-nav">
           {{#if session.isAuthenticated}}
           <li>
+            {{#link-to 'schedules'}}Schedules{{/link-to}}
+          </li>
+          <li>
             {{#link-to 'recipes'}}Recipes{{/link-to}}
           </li>
           <li>
