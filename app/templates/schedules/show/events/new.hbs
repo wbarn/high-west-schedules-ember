@@ -1,0 +1,24 @@
+<h3>New Event</h3>
+
+<hr>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="date" class="col-sm-2 col-md-1 control-label">Date</label>
+    <div class="col-sm-10 col-md-5">
+      {{bootstrap-datepicker value=event.date class="form-control"}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="notes" class="col-sm-2 col-md-1 control-label">Notes</label>
+    <div class="col-sm-10 col-md-5">
+      {{textarea value=event.notes class="form-control"}}
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10 col-md-offset-1 col-md-5">
+      <button {{action 'createEvent' schedule event}} class="btn btn-primary">Save</button>
+      <button{{action 'cancelCreateEvent' schedule event}} class="btn btn-default">Cancel</button>
+    </div>
+  </div>
+</form>

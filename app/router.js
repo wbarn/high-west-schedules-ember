@@ -36,7 +36,13 @@ Router.map(function() {
 
   this.route('schedules', function() {
     this.route('new');
-    this.route('show', { path: '/:schedule_id' });
+    this.route('show', { path: '/:schedule_id' }, function() {
+      this.route('events', function() {
+        this.route('new');
+        this.route('show', { path: '/:event_id' });
+        this.route('edit', { path: '/:event_id/edit' });
+      });
+    });
     this.route('edit', { path: '/:schedule_id/edit' });
     this.route('delete', { path: '/:schedule_id/delete' });
   });

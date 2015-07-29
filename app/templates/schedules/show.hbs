@@ -1,9 +1,6 @@
-<h1>Schedule: <em>{{model.name}}</em> <small>{{#link-to 'schedules.edit' model}}edit{{/link-to}}</small></h1>
+<h1>
+  {{#link-to 'schedules.show' model}}Schedule: <em>{{model.name}}</em>{{/link-to}}
+  <small>{{#link-to 'schedules.edit' model}}edit{{/link-to}}</small>
+</h1>
 
-<h3>{{moment-format model.createdAt 'MMM DD, YYYY'}}</h3>
-
-{{#if model.notes}}
-  <p>
-    {{model.notes}}
-  </p>
-{{/if}}
+{{outlet}}

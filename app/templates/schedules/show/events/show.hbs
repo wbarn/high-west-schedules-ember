@@ -1,0 +1,7 @@
+<h3>Event <em>{{moment-format model.date 'MM/DD/YY'}}</em> <small>{{#link-to 'schedules.show.events.edit' model}}edit{{/link-to}}</small></h3>
+
+{{#if model.notes}}
+  <p>
+    {{model.notes}}
+  </p>
+{{/if}}

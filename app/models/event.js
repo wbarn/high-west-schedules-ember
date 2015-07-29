@@ -1,9 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  name: DS.attr('string'),
+  date: DS.attr('utc'),
   notes: DS.attr('string'),
-  createdAt: DS.attr('utc'),
 
-  events: DS.hasMany('event')
+  schedule: DS.belongsTo('schedule')
 });
