@@ -1,0 +1,21 @@
+<td class="col-md-3">
+  {{view "select"
+    class="form-control"
+    content=spiritTypes
+    optionValuePath="content.id"
+    optionLabelPath="content.name"
+    selection=item.spiritType
+    prompt="Select one"}}
+</td>
+<td class="col-md-1">
+  {{input value=item.age type="number" placeholder="Age" class="form-control"}}
+</td>
+<td class="col-md-2">
+  {{input value=item.proofGallons type="number" placeholder="Proof Gallons" class="form-control"}}
+</td>
+<td class="col-md-3">
+  {{input value=item.notes type="text" placeholder="Notes" class="form-control"}}
+</td>
+<td class="col-md-2">
+  <button {{action "save" item}} class="btn btn-primary btn-xs">Save</button>
+</td>

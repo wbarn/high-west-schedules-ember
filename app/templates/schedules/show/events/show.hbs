@@ -1,7 +1,31 @@
-<h3>Event <em>{{moment-format model.date 'MM/DD/YY'}}</em> <small>{{#link-to 'schedules.show.events.edit' model}}edit{{/link-to}}</small></h3>
+<h3>Event <em>{{moment-format event.date 'MM/DD/YY'}}</em> <small>{{#link-to 'schedules.show.events.edit' event}}edit{{/link-to}}</small></h3>
 
-{{#if model.notes}}
+{{#if event.notes}}
   <p>
-    {{model.notes}}
+    {{event.notes}}
   </p>
 {{/if}}
+
+<hr>
+
+<h4>Production</h4>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Spirit Type</th>
+        <th>Age</th>
+        <th>Proof Gallons</th>
+        <th>Notes</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each event.productionItems as |item|}}
+        {{production-item-editable-row item=item spiritTypes=spiritTypes}}
+      {{/each}}
+      {{production-item-new-form event=event spiritTypes=spiritTypes}}
+    </tbody>
+  </table>
+<hr>
+
+<h4>Processing</h4>
