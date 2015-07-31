@@ -1,3 +1,5 @@
+{{#link-to 'schedules.show' event.schedule}}Back to Events{{/link-to}}
+
 <h3>Event <em>{{moment-format event.date 'MM/DD/YY'}}</em> <small>{{#link-to 'schedules.show.events.edit' event.id}}edit{{/link-to}}</small></h3>
 
 {{#if event.notes}}
