@@ -23,7 +23,7 @@
       </thead>
       <tbody>
         {{#each model.events as |event|}}
-          {{#link-to 'schedules.show.events.show' event tagName="tr" class="clickable"}}
+          {{#link-to 'schedules.show.events.show' event.id tagName="tr" class="clickable"}}
             <td>{{moment-format event.date 'MM/DD/YY'}}</td>
             <td>{{event.notes}}</td>
           {{/link-to}}

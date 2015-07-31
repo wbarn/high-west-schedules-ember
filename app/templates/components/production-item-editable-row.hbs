@@ -1,5 +1,5 @@
-{{#if showFields}}
-  <td class="col-md-3">
+{{#liquid-if showFields class="production-item-editable-row"}}
+  <div class="col-sm-3">
     {{view "select"
       class="form-control"
       content=spiritTypes
@@ -7,27 +7,27 @@
       optionLabelPath="content.name"
       selection=item.spiritType
       prompt="Select one"}}
-  </td>
-  <td class="col-md-1">
+  </div>
+  <div class="col-sm-1">
     {{input value=item.age type="number" placeholder="Age" class="form-control"}}
-  </td>
-  <td class="col-md-2">
+  </div>
+  <div class="col-sm-2">
     {{input value=item.proofGallons type="number" placeholder="Proof Gallons" class="form-control"}}
-  </td>
-  <td class="col-md-3">
+  </div>
+  <div class="col-sm-3">
     {{input value=item.notes type="text" placeholder="Notes" class="form-control"}}
-  </td>
-  <td class="col-md-2">
+  </div>
+  <div class="col-sm-2">
     <button {{action 'save' item}} class="btn btn-primary btn-xs">Save</button>
     <button {{action 'delete' item}} class="btn btn-danger btn-xs">Delete</button>
     <button {{action 'cancel' item}} class="btn btn-default btn-xs">Cancel</button>
-  </td>
+  </div>
 {{else}}
-  <td class="col-md-3">{{item.spiritType.name}}</td>
-  <td class="col-md-1">{{item.age}}</td>
-  <td class="col-md-2">{{item.proofGallons}}</td>
-  <td class="col-md-3">{{item.notes}}</td>
-  <td class="col-md-2">
+  <div class="col-sm-3">{{item.spiritType.name}}</div>
+  <div class="col-sm-1">{{item.age}}</div>
+  <div class="col-sm-2">{{item.proofGallons}}</div>
+  <div class="col-sm-3">{{item.notes}}</div>
+  <div class="col-sm-2">
     <button {{action 'edit'}} class="btn btn-default btn-xs">Edit</button>
-  </td>
-{{/if}}
+  </div>
+{{/liquid-if}}
