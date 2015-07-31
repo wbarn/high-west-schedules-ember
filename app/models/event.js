@@ -4,6 +4,6 @@ export default DS.Model.extend({
   date: DS.attr('utc'),
   notes: DS.attr('string'),
 
-  schedule: DS.belongsTo('schedule'),
-  productionItems: DS.hasMany('production-items')
+  productionItems: DS.hasMany('production-items'),
+  processingItems: DS.hasMany('processing-items')
 });

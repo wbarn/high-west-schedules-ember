@@ -2,15 +2,15 @@
   cursor: pointer;
 }
 
-.production-items-wrapper .row{
+.event-items-wrapper .row{
   height: 40px;
   padding: 5px;
 }
 
-.production-items-wrapper .row.header {
+.event-items-wrapper .row.header {
   border-bottom: black 1px solid
 }
 
-.production-items-wrapper .row.new-form {
+.event-items-wrapper .row.new-form {
   margin-top: 50px;
 }

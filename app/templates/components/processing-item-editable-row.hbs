@@ -1,0 +1,41 @@
+{{#liquid-if showFields class="editable-row"}}
+  <div class="col-sm-3">
+    {{view "select"
+      class="form-control"
+      content=recipes
+      optionValuePath="content.id"
+      optionLabelPath="content.name"
+      selection=item.recipe
+      prompt="Select one"}}
+  </div>
+  <div class="col-sm-1">
+    {{input type="text" value=item.cases placeholder="Cases" class="form-control"}}
+  </div>
+  <div class="col-sm-1">
+    {{input type="text" value=item.proofGallons placeholder="PFGs" class="form-control"}}
+  </div>
+  <div class="col-sm-3">
+    {{input type="text" value=item.notes placeholder="Notes" class="form-control"}}
+  </div>
+  <div class="col-sm-2">
+    <button {{ action 'save' item }} class="btn btn-primary btn-xs">Save</button>
+    <button {{ action 'delete' item }} class="btn btn-danger btn-xs">Delete</button>
+    <button {{ action 'cancel' item }} class="btn btn-default btn-xs">Cancel</button>
+  </div>
+{{else}}
+  <div class="col-sm-3">
+    {{item.recipe.name}}
+  </div>
+  <div class="col-sm-1">
+    {{item.cases}}
+  </div>
+  <div class="col-sm-1">
+    {{item.proofGallons}}
+  </div>
+  <div class="col-sm-3">
+    {{item.notes}}
+  </div>
+  <div class="col-sm-2">
+    <button {{ action 'edit'}} class="btn btn-default btn-xs">Edit</button>
+  </div>
+{{/liquid-if}}

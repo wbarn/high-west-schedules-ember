@@ -8,32 +8,61 @@
 
 <hr>
 
-<h4>Production</h4>
-<div class="production-items-wrapper">
-  <div class="row header">
-    <div class="col-sm-3">
-      <strong>Spirit Type</strong>
+<div class="event-items-wrapper">
+  <h4>Production</h4>
+
+  <div class="production-items-wrapper">
+    <div class="row header">
+      <div class="col-sm-3">
+        <strong>Spirit Type</strong>
+      </div>
+      <div class="col-sm-1">
+        <strong>Age</strong>
+      </div>
+      <div class="col-sm-1">
+        <strong>PFGs</strong>
+      </div>
+      <div class="col-sm-3">
+        <strong>Notes</strong>
+      </div>
     </div>
-    <div class="col-sm-1">
-      <strong>Age</strong>
-    </div>
-    <div class="col-sm-2">
-      <strong>Proof Gallons</strong>
-    </div>
-    <div class="col-sm-3">
-      <strong>Notes</strong>
-    </div>
+
+    {{#liquid-spacer}}
+      {{#each event.productionItems as |item|}}
+        {{production-item-editable-row item=item spiritTypes=spiritTypes}}
+      {{/each}}
+    {{/liquid-spacer}}
+
+    {{production-item-new-row event=event spiritTypes=spiritTypes}}
   </div>
 
-  {{#liquid-spacer}}
-    {{#each event.productionItems as |item|}}
-      {{production-item-editable-row item=item spiritTypes=spiritTypes}}
-    {{/each}}
-  {{/liquid-spacer}}
+  <hr>
 
-  {{production-item-new-form event=event spiritTypes=spiritTypes}}
-</div>
+  <h4>Processing</h4>
 
-<hr>
+  <div class="processing-items-wrapper">
+    <div class="row header">
+      <div class="col-sm-3">
+        <strong>Recipe</strong>
+      </div>
+      <div class="col-sm-1">
+        <strong>Cases</strong>
+      </div>
+      <div class="col-sm-1">
+        <strong>PFGs</strong>
+      </div>
+      <div class="col-sm-3">
+        <strong>Notes</strong>
+      </div>
+    </div>
 
-<h4>Processing</h4>
+    {{#liquid-spacer}}
+      {{#each event.processingItems as |item|}}
+        {{processing-item-editable-row item=item recipes=recipes}}
+      {{/each}}
+    {{/liquid-spacer}}
+
+    {{processing-item-new-row event=event recipes=recipes}}
+  </div>
+
+</div>{{!-- event-items-wrapper --}}
