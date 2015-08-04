@@ -46,22 +46,22 @@
             <td>{{ingredient.spiritType.name}}</td>
             <td class="text-right">{{format-number ingredient.age}}</td>
             <td class="text-right">
-              {{format-number ingredient.percentage precision=2}}
+              {{format-number ingredient.percentage}}
             </td>
             <td class="text-right">
               {{ingredient-pfgs  totalProofGallons ingredient.percentage}}
             </td>
             <td class="text-right">
-              {{format-number ingredient.inventoryAtAge precision=2}}
+              {{format-number ingredient.inventoryAtAge}}
             </td>
             <td class="text-right">
-              {{format-number ingredient.inventoryPlusSix precision=2}}
+              {{format-number ingredient.inventoryPlusSix}}
             </td>
             <td class="text-right">
-              {{format-number ingredient.inventoryBeyondSix precision=2}}
+              {{format-number ingredient.inventoryBeyondSix}}
             </td>
             <td class="text-right">
-              {{format-number ingredient.inventoryBelowAge precision=2}}
+              {{format-number ingredient.inventoryBelowAge}}
             </td>
           {{/link-to}}
         {{/each}}
@@ -71,14 +71,7 @@
           <td class="text-right">
             <strong>{{model.percentageTotal}}</strong> {{#if model.percentageInvalid}}(off by {{model.percentageDiff}}){{/if}}
           </td>
-          <td class="text-right">
-            {{#if model.ingredients}}
-              {{format-number totalProofGallons precision=3}}
-            {{else}}
-              <em>n/a</em>
-            {{/if}}
-          </td>
-          <td colspan="4"></td>
+          <td colspan="5"></td>
         </tr>
       </tbody>
     </table>

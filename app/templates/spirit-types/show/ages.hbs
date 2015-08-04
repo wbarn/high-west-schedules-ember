@@ -14,7 +14,7 @@
         {{#each model.ages as |age|}}
           {{#link-to 'spiritTypes.show.lots' spiritType.id (query-params age=age.age) tagName='tr' class="clickable"}}
             <td>{{age.age}}</td>
-            <td>{{age.barrel_count}}</td>
+            <td>{{format-number age.barrel_count}}</td>
             <td>{{format-number age.original_proof_gallons}}</td>
           {{/link-to}}
         {{/each}}
