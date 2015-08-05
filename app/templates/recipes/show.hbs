@@ -32,8 +32,8 @@
           <th class="text-right">Percentage</th>
           <th class="text-right">PFGs (for {{cases}} cases)</th>
           <th class="text-right">PFGs at Age</th>
-          <th class="text-right">PFGs Age - +6</th>
-          <th class="text-right">PFGs Age &gt; +6</th>
+          <th class="text-right">PFGs Age +6m</th>
+          <th class="text-right">PFGs Age &gt; +6m</th>
           <th class="text-right">PFGs &lt; Age</th>
         </tr>
       </thead>
@@ -69,7 +69,7 @@
           <td></td>
           <td><strong>Totals</strong></td>
           <td class="text-right">
-            <strong>{{model.percentageTotal}}</strong> {{#if model.percentageInvalid}}(off by {{model.percentageDiff}}){{/if}}
+            <strong>{{format-number model.percentageTotal precision=0}}</strong> {{#if model.percentageInvalid}}(off by {{model.percentageDiff}}){{/if}}
           </td>
           <td colspan="5"></td>
         </tr>
